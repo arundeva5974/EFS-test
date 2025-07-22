@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - yum install -y amazon-efs-utils
+  build:
+    commands:
+      - mkdir -p /mnt/efs
+      - mount -t efs fs-0288860069a8054bf:/ /mnt/efs
+      - cp -r * /mnt/efs/
