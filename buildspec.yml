@@ -7,4 +7,5 @@ phases:
     commands:
       - mkdir -p /mnt/efs
       - mount -t efs fs-0aab6ff2956591ab4:/ /mnt/efs
-      - cp -r * /mnt/efs/
+      # Copy everything, including hidden files and folders, to EFS
+      - cp -a . /mnt/efs/
