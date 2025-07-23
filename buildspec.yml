@@ -2,10 +2,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum install -y amazon-efs-utils
+      - yum install -y amazon-efs-utils rsync
   build:
     commands:
       - mkdir -p /mnt/efs
       - mount -t efs fs-0aab6ff2956591ab4:/ /mnt/efs
-      # Copy everything, including hidden files and folders, to EFS
-      - cp -a . /mnt/efs/
+      # Mirror all content (including deletions) from repo to EFS
+      - rsync -av --delete . /mnt/efs/
