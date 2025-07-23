@@ -6,5 +6,5 @@ phases:
   build:
     commands:
       - mkdir -p /mnt/efs
-      - mount -t efs fs-0288860069a8054bf:/ /mnt/efs
+      - mount -t efs fs-0aab6ff2956591ab4:/ /mnt/efs
       - cp -r * /mnt/efs/
